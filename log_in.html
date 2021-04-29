@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <link rel="shortcut icon" href="#">
+        <title>Log In</title>
+    </head>
+    <body>
+        <form  id="myform" method="post" style="margin-top: 350px;">
+            <div style="background-color: cornflowerblue; padding: 50px; margin: auto; width: 50%; display: flex; justify-content: center; flex-wrap: wrap;">
+
+                <input id="password" type="password" placeholder="Password...">
+                <button type="submit">Log In</button>
+
+            <div>
+        </form>
+
+
+
+        <script>
+
+            $('#myform').on('submit', function (event) {
+
+                var pass = $('#password').val();
+  
+                if ( !pass.match(/^(?=.*[0-9])(?=.*[a-zA-Z])[a-zA-Z0-9!@#$%^&*€·%]{8,}$/) ) {
+                    alert('NOOOOOOOOOOOOOOOOOOOOOoo');
+                    event.preventDefault();
+                    return false;
+                }
+                return true;
+            });
+
+            
+        </script>
+
+    </body>
+</html> 

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <link rel="shortcut icon" href="#">
+        <title>Search</title>
+    </head>
+    <body>
+        <style>
+            input, select, button {
+                width: 100%;
+                margin: 10px;
+            }
+
+            /* Chrome, Safari, Edge, Opera */
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+            }
+
+            /* Firefox */
+            input[type=number] {
+            -moz-appearance: textfield;
+            }
+
+            table, td, th {
+                border: 1px solid black;
+                padding: 3px;
+            }
+              
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            table {
+                font-size: 13px;
+            }
+
+        </style>
+
+        <form  id="myform" method="post" style="margin-top: 150px;">
+            <div style="background-color: cornflowerblue; padding: 50px; margin: auto; width: 50%; display: flex; justify-content: center; flex-wrap: wrap;">
+
+                <input id="name" type="text" placeholder="Name...">
+                <input id="surname" type="text" placeholder="Surname...">
+                <input id="phone1" type="text" placeholder="Telephone...">
+                <input id="phone2" type="text" placeholder="Movile phone...">
+                <input id="email" type="email" placeholder="Email...">
+                <input id="school" type="text" placeholder="School / Organization...">
+                <input id="username" type="text" placeholder="Username...">
+                <select name="group" id="group">
+                    <option value="all">Tots (*)</option>
+                    <option value="all">Professors (2000)</option>
+                    <option value="all">Alumnes (3000)</option>
+
+                </select>
+
+                <button type="submit">Search </button>
+
+
+                <table style="width: 100%; background-color: white; margin-top: 30px;">
+                    <caption>Search resault: </caption>
+                    <tr>
+                      <th>Username</th>
+                      <th>Surnames</th>
+                      <th colspan="2">Telephones</th>
+                      <th>Email</th>
+                      <th>School / Organization</th>
+                      <th>Group</th>
+
+                    </tr>
+                    <tr>
+                      <td>Pere</td>
+                      <td>Puig Soler</td>
+                      <td>1112233</td>
+                      <td>4445566</td>
+                      <td>aaa@ddd.ccc</td>
+                      <td>Cirvianum</td>
+                      <td>P</td>
+
+
+                    </tr>
+                </table>
+
+            </div>
+
+
+        </form>
+
+
+        <script>
+
+            $('#myform').on('submit', function (event) {
+
+                var phone1 = $('#phone1').val();
+                console.log(phone1);
+                if ( phone1 ) {
+                    if ( !phone1.match(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im) ) {
+                        alert('The Telephone Format Is Invalid...');
+                        event.preventDefault();
+                        return false;
+                    }
+                }
+
+                var phone2 = $('#phone2').val();
+                if ( phone2 ) {
+                    if ( !phone2.match(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im) ) {
+                        alert('The Movile Phone Format Is Invalid...');
+                        event.preventDefault();
+                        return false;
+                    }
+                }
+
+                return true;
+            });
+
+            
+        </script>
+
+    </body>
+</html> 
